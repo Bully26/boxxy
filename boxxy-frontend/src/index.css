@@ -1,0 +1,171 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* VS Code Dark Theme */
+    --background: 220 13% 12%;
+    --foreground: 220 13% 91%;
+
+    --card: 220 13% 14%;
+    --card-foreground: 220 13% 91%;
+
+    --popover: 220 13% 14%;
+    --popover-foreground: 220 13% 91%;
+
+    --primary: 210 100% 56%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 220 13% 18%;
+    --secondary-foreground: 220 13% 91%;
+
+    --muted: 220 13% 20%;
+    --muted-foreground: 220 13% 60%;
+
+    --accent: 220 13% 22%;
+    --accent-foreground: 220 13% 91%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 13% 22%;
+    --input: 220 13% 18%;
+    --ring: 210 100% 56%;
+
+    --radius: 0.375rem;
+
+    /* Code Box Colors */
+    --box-blue: 210 100% 56%;
+    --box-green: 142 71% 45%;
+    --box-orange: 25 95% 53%;
+    --box-purple: 270 76% 60%;
+
+    /* Editor specific */
+    --editor-bg: 220 13% 10%;
+    --editor-line: 220 13% 16%;
+    --editor-selection: 210 100% 40%;
+
+    /* Terminal */
+    --terminal-bg: 220 13% 8%;
+    --terminal-success: 142 71% 45%;
+    --terminal-error: 0 84% 60%;
+    --terminal-warning: 45 93% 47%;
+
+    /* Sidebar */
+    --sidebar-background: 220 13% 11%;
+    --sidebar-foreground: 220 13% 91%;
+    --sidebar-primary: 210 100% 56%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 220 13% 16%;
+    --sidebar-accent-foreground: 220 13% 91%;
+    --sidebar-border: 220 13% 18%;
+    --sidebar-ring: 210 100% 56%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+
+  /* Custom scrollbar for VS Code feel */
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-background;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-muted rounded-sm;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-muted-foreground/40;
+  }
+}
+
+@layer components {
+  .code-box-blue {
+    @apply border-l-4;
+    border-left-color: hsl(var(--box-blue));
+  }
+
+  .code-box-green {
+    @apply border-l-4;
+    border-left-color: hsl(var(--box-green));
+  }
+
+  .code-box-orange {
+    @apply border-l-4;
+    border-left-color: hsl(var(--box-orange));
+  }
+
+  .code-box-purple {
+    @apply border-l-4;
+    border-left-color: hsl(var(--box-purple));
+  }
+
+  .color-dot-blue {
+    @apply bg-[hsl(210,100%,56%)];
+  }
+
+  .color-dot-green {
+    @apply bg-[hsl(142,71%,45%)];
+  }
+
+  .color-dot-orange {
+    @apply bg-[hsl(25,95%,53%)];
+  }
+
+  .color-dot-purple {
+    @apply bg-[hsl(270,76%,60%)];
+  }
+
+  .terminal-output {
+    @apply font-mono text-sm leading-relaxed;
+  }
+
+  .terminal-error {
+    @apply text-destructive;
+  }
+
+  .terminal-success {
+    @apply text-[hsl(142,71%,45%)];
+  }
+
+  .panel-header {
+    @apply flex items-center justify-between px-3 py-2 bg-secondary border-b border-border text-sm font-medium;
+  }
+
+  .action-button {
+    @apply p-1.5 rounded hover:bg-accent transition-colors duration-150;
+  }
+
+  .nav-button {
+    @apply px-3 py-1.5 rounded text-sm font-medium transition-all duration-150 hover:bg-accent;
+  }
+
+  .nav-button-active {
+    @apply bg-primary text-primary-foreground hover:bg-primary/90;
+  }
+
+  .drag-handle {
+    @apply cursor-grab active:cursor-grabbing;
+  }
+}
+
+@layer utilities {
+  .glass-panel {
+    @apply bg-card/80 backdrop-blur-sm border border-border;
+  }
+}
