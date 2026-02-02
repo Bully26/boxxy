@@ -1,0 +1,41 @@
+so this the back end 
+
+[so its has following basic jobs]
+
+1 user authentication and rate limiting 
+2 pass this code to message queue 
+3 with task id and return task id to user also 
+4 code executor will execute the job return with task id 
+5 code executor will update the task status to completed and return the result to user
+
+
+api call from client site to user site 
+
+information need from client site 
+{
+    user info for rate limiting and auth ,
+    coding language ,
+    code , 
+    input
+
+}
+
+information will be sended to client for aclknowledgement 
+{
+    user info ,
+    taks id 
+     // this task will be used to identify if the task is completed or not 
+}
+
+
+
+So what will the entry point do 
+
+- get api to run code from user
+- it will create an  job uid for the code
+- send this job uid to message queue
+- update state of job by uid in the quick cache
+- check pooling req of user
+- check again quick cache
+- if the code is there in the dynamo db fetch it
+- serve to the user
